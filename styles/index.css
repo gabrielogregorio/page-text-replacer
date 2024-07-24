@@ -1,0 +1,36 @@
+/* RESET */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* THEMES */
+
+:root {
+  --main-bg-color: #222222;
+  --main-text-color: white;
+  --main-border-color: white;
+}
+
+#app {
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+}
+
+/* textarea */
+
+.container-textarea {
+  border: 2px solid var(--main-border-color);
+  color: var(--main-text-color);
+  background-color: transparent;
+  font-weight: 400;
+  outline: none;
+  height: 400px;
+  width: 500px;
+  padding: 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
