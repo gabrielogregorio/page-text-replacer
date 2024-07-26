@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>replacer</title>
+  </head>
+  <body id="app" class="scrollbar">
+
+      <h1>PAGE TEXT REPLACER</h1>
+      <hr>
+      <h2>CRIAR REGEX PARA SUA CONFIGURAÇÃO</h2>
+
+      <div class="item">
+        <span>
+          REGEX
+        </span>
+        <input name="preview" id="regex" class="input" placeholder="type your regex"></input>
+      </div>
+
+      <div class="item">
+        <span>
+          TEXTO
+        </span>
+        <input name="preview2" id="text" class="input" placeholder="type your regex"></input>
+      </div>
+      <div class="item">
+        RESULTADO:<br/> <div id="result"></div>
+      </div>
+
+      <div class="item">
+        REGEX PARA O JSON:<br/> <div id="final"></div>
+      </div>
+
+      
+
+      <hr>
+
+      <h2>Cole suas configurações</h2>
+      <textarea name="note" id="textarea" class="container-textarea scrollbar"></textarea>
+
+      <script src="./index.js"></script>
+    </div>
+  </body>
+</html>
