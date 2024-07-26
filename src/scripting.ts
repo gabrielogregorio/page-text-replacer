@@ -1,3 +1,5 @@
+// THIS IS ULTRA BETA
+
 type model = {
   regexActiveOnUrl: string;
   url?: string;
@@ -6,14 +8,19 @@ type model = {
   replacers: {
     regexSearchToApply?: string;
     regexGlobalFound: string;
+    name: string;
     replaceBy: string;
   }[];
 }[];
 
+function normalize(text: string) {
+  return text.replace('', ' ');
+}
+
 async function getStorage2() {
   // @ts-ignore
-  return chrome.storage.local.get(["page-text-replacer"]).then((result) => {
-    return result["page-text-replacer"]
+  return chrome.storage.local.get(['page-text-replacer']).then((result) => {
+    return result['page-text-replacer'];
   });
 }
 
@@ -35,7 +42,7 @@ async function runningFunction() {
   const pageUrl = window.location.href;
 
   model.forEach((item) => {
-    const notEnableExtension = new RegExp(item.regexActiveOnUrl, "g").test(pageUrl) === false;
+    const notEnableExtension = new RegExp(item.regexActiveOnUrl, 'g').test(pageUrl) === false;
     if (notEnableExtension) {
       // console.log(`[page-text-replacer] not enable, page is "${pageUrl}" and regex is "${item.regexActiveOnUrl}"`);
       return;
@@ -52,12 +59,12 @@ async function runningFunction() {
     }
 
     itemsQuery.forEach((itemQuery) => {
-      let textContent = itemQuery.textContent || "";
+      let textContent = normalize(itemQuery.textContent || '');
 
       item.replacers.forEach((itemReplacer) => {
         if (itemReplacer.regexSearchToApply) {
           // console.info(`[page-text-replacer] search pattern to apply replacers using regex '${itemReplacer.regexSearchToApply}'`);
-          const pattern = new RegExp(itemReplacer.regexSearchToApply, "g");
+          const pattern = new RegExp(itemReplacer.regexSearchToApply, 'g');
           if (!pattern.test(textContent)) {
             // console.warn(`[page-text-replacer] text content don't match pattern, text context "${JSON.stringify(textContent)}"`);
             return;
@@ -65,8 +72,8 @@ async function runningFunction() {
         }
 
         // console.warn(`[page-text-replacer] replacing content, to "${itemReplacer.regexGlobalFound}" from "${itemReplacer.replaceBy}"`);
-        const pattern = new RegExp(itemReplacer.regexGlobalFound, "g");
-        textContent = (textContent || "")?.replace(pattern, itemReplacer.replaceBy);
+        const pattern = new RegExp(itemReplacer.regexGlobalFound, 'g');
+        textContent = (textContent || '')?.replace(pattern, itemReplacer.replaceBy);
       });
 
       itemQuery.textContent = textContent;

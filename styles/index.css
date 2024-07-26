@@ -4,33 +4,106 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-weight: 400;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 /* THEMES */
 
 :root {
-  --main-bg-color: #222222;
-  --main-text-color: white;
-  --main-border-color: white;
+  --main-bg-color: #00060e;
+  --main-text-color: #f35647;
+  --main-border-color: #23f9ff;
+}
+
+.item {
+  margin-top: 0.5rem;
+}
+
+#result {
+  color: #23f9ff;
+}
+
+#final {
+  color: #23f9ff;
 }
 
 #app {
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
+  width: 700px;
+  padding: 2rem;
+}
+
+h1 {
+  color: #fff002;
+  font-weight: 800;
 }
 
 /* textarea */
 
 .container-textarea {
+  margin-top: 1rem;
   border: 2px solid var(--main-border-color);
   color: var(--main-text-color);
   background-color: transparent;
   font-weight: 400;
   outline: none;
   height: 400px;
-  width: 500px;
+  width: 100%;
   padding: 24px;
+  color: #23f9ff;
   overflow-y: auto;
   overflow-x: hidden;
   font-size: 1rem;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  white-space: nowrap; /* Impede que o texto quebre em nova linha */
+  overflow-x: auto; /* Adiciona uma barra de rolagem horizontal se necessário */
+  overflow-y: auto; /* Esconde a barra de rolagem vertical */
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.item {
+  padding-top: 0.5rem;
+}
+
+.input {
+  border: 2px solid var(--main-border-color);
+  color: var(--main-text-color);
+  background-color: transparent;
+  outline: none;
+  width: 100%;
+  color: #23f9ff;
+  padding: 4px;
+  font-size: 1rem;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 15px;
+  cursor: move;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  border: none;
+  background: #23f8ff2a;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  border: none;
+  background: #23f9ff;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  border: none;
+  background: #23f9ff;
+}
+
+hr {
+  margin-top: 0.5rem;
 }
