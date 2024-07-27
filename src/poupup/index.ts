@@ -91,6 +91,7 @@ const processRegexUpdated = () => {
   ConfigRepository.get().then((model) => {
     if (model) {
       htmlTextareaConfig.value = JSON.stringify(model, undefined, 2);
+      return;
     }
     htmlTextareaConfig.value = `[
   {
@@ -119,7 +120,7 @@ const markIsEnabled = (enabled: boolean) => {
     htmlButtonOn.classList.add('selected');
     return;
   }
-  
+
   htmlButtonOff.classList.add('selected');
   htmlButtonOn.classList.remove('selected');
 };
