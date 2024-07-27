@@ -1,5 +1,3 @@
-/* RESET */
-
 * {
   padding: 0;
   margin: 0;
@@ -7,10 +5,9 @@
   font-weight: 400;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-/* THEMES */
 
 :root {
-  --main-bg-color: #00060e;
+  --main-bg-color: #150913;
   --main-text-color: #f35647;
   --main-border-color: #23f9ff;
 }
@@ -19,12 +16,17 @@
   margin-top: 0.5rem;
 }
 
-#result {
+#input-text,
+#input-status,
+#input-config,
+#msg-errors,
+#input-result-regex,
+#input-result-regex {
   color: #23f9ff;
 }
 
-#final {
-  color: #23f9ff;
+.input {
+  margin-top: 0.2rem;
 }
 
 #app {
@@ -34,14 +36,25 @@
   padding: 2rem;
 }
 
+hr {
+  border-color: #588187;
+}
 h1 {
   color: #fff002;
   font-weight: 800;
+  font-size: 2rem;
 }
 
-/* textarea */
+h2 {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  background: #0e0b16;
+  padding: 16 0px;
+  font-weight: 500;
+  color: #fff5fd;
+}
 
-.container-textarea {
+#textarea {
   margin-top: 1rem;
   border: 2px solid var(--main-border-color);
   color: var(--main-text-color);
@@ -55,18 +68,9 @@ h1 {
   overflow-y: auto;
   overflow-x: hidden;
   font-size: 1rem;
-  white-space: nowrap; /* Impede que o texto quebre em nova linha */
-  overflow-x: auto; /* Adiciona uma barra de rolagem horizontal se necessário */
-  overflow-y: auto; /* Esconde a barra de rolagem vertical */
-}
-
-h1 {
-  font-size: 2rem;
-}
-
-h2 {
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
 .item {
@@ -80,28 +84,28 @@ h2 {
   outline: none;
   width: 100%;
   color: #23f9ff;
-  padding: 4px;
+  padding: 6px;
   font-size: 1rem;
 }
 
 .scrollbar::-webkit-scrollbar {
-  width: 15px;
+  width: 5px;
   cursor: move;
 }
 
 .scrollbar::-webkit-scrollbar-track {
   border: none;
-  background: #23f8ff2a;
+  background: #290e17;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
   border: none;
-  background: #23f9ff;
+  background: #c74851;
 }
 
 .scrollbar::-webkit-scrollbar-thumb:hover {
   border: none;
-  background: #23f9ff;
+  background: #c74851;
 }
 
 hr {

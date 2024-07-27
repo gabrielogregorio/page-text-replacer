@@ -7,40 +7,62 @@
     <title>replacer</title>
   </head>
   <body id="app" class="scrollbar">
+    <h1>PAGE TEXT REPLACER</h1>
 
-      <h1>PAGE TEXT REPLACER</h1>
-      <hr>
-      <h2>CRIAR REGEX PARA SUA CONFIGURAÇÃO</h2>
+    <hr />
 
-      <div class="item">
-        <span>
-          REGEX
-        </span>
-        <input name="preview" id="regex" class="input" placeholder="type your regex"></input>
-      </div>
+    <h2>Create a replacer config</h2>
 
-      <div class="item">
-        <span>
-          TEXTO
-        </span>
-        <input name="preview2" id="text" class="input" placeholder="type your regex"></input>
-      </div>
-      <div class="item">
-        RESULTADO:<br/> <div id="result"></div>
-      </div>
-
-      <div class="item">
-        REGEX PARA O JSON:<br/> <div id="final"></div>
-      </div>
-
-      
-
-      <hr>
-
-      <h2>Cole suas configurações</h2>
-      <textarea name="note" id="textarea" class="container-textarea scrollbar"></textarea>
-
-      <script src="./index.js"></script>
+    <div class="item">
+      <span> REGEX </span>
+      <input name="input-regex" id="input-regex" class="input" placeholder="Type your regex" />
     </div>
+
+    <div class="item">
+      <span> REPLACE BY </span>
+      <input
+        name="input-replace-by"
+        id="input-replace-by"
+        class="input"
+        placeholder="Type your replace by, example, anyText or $2"
+      />
+    </div>
+
+    <div class="item">
+      <span> TEXT </span>
+      <input
+        name="input-text"
+        id="input-text"
+        class="input"
+        placeholder="Type your target text, invalid characters will be removed"
+      />
+    </div>
+
+    <div class="item">
+      RESULT TEXT:<br />
+      <div id="input-result-regex"></div>
+    </div>
+
+    <div class="item">
+      STATUS:<br />
+      <div id="input-status"></div>
+    </div>
+
+    <div class="item">
+      CONFIG REPLACER:<br />
+      <pre id="input-config"></pre>
+    </div>
+
+    <hr />
+
+    <h2>Past your config file</h2>
+    <div class="item">
+      ERRORS:<br />
+      <div id="msg-errors"></div>
+    </div>
+
+    <textarea name="note" id="textarea" class="scrollbar"></textarea>
+
+    <script type="module" src="./popup.js"></script>
   </body>
 </html>
