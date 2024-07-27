@@ -6,3 +6,5 @@ export const htmlRegexMath = document.getElementById('input-status') as HTMLDivE
 export const htmlDivRegexAsString = document.getElementById('input-config') as HTMLDivElement;
 export const htmlTextareaConfig = document.getElementById('textarea') as HTMLTextAreaElement;
 export const htmlDivAlerts = document.getElementById('msg-errors') as HTMLDivElement;
+export const htmlButtonOff = document.getElementById('btn-status-off') as HTMLButtonElement;
+export const htmlButtonOn = document.getElementById('btn-status-on') as HTMLButtonElement;

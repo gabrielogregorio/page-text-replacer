@@ -1,9 +1,11 @@
+import { LogService } from '../services/LogService';
 import { ConfigRepository } from '../shared/ConfigRepository';
 import { removeExtraneousCharacters } from '../shared/utils';
 
 export const runningScript = async () => {
   const models = await ConfigRepository.get();
   if (!models) {
+    LogService.log('not has model');
     return;
   }
 
@@ -12,11 +14,13 @@ export const runningScript = async () => {
   models.forEach((model) => {
     const notEnableInThisUrl = new RegExp(model.regexActiveOnUrl, 'g').test(pageUrl) === false;
     if (notEnableInThisUrl) {
+      LogService.log('url not match');
       return;
     }
 
     const htmlTags = Array.from(document.querySelectorAll(model.querySelectorAllTextContent));
     if (!htmlTags.length) {
+      LogService.log('not found query selector')
       return;
     }
 

@@ -13,13 +13,23 @@
 
     <h2>Create a replacer config</h2>
 
+    <div class="item config-line">
+      <h3>STATUS</h3>
+      <div class="buttons">
+        <button type="button" id="btn-status-off" class="btn-status">OFF</button>
+        <button type="button" id="btn-status-on" class="btn-status">ON</button>
+      </div>
+    </div>
+
+    <h2>Create a replacer config</h2>
+
     <div class="item">
-      <span> REGEX </span>
+      <label for="input-regex"> REGEX </label>
       <input name="input-regex" id="input-regex" class="input" placeholder="Type your regex" />
     </div>
 
     <div class="item">
-      <span> REPLACE BY </span>
+      <label for="input-replace-by"> REPLACE BY </label>
       <input
         name="input-replace-by"
         id="input-replace-by"
@@ -29,7 +39,7 @@
     </div>
 
     <div class="item">
-      <span> TEXT </span>
+      <label for="input-text"> TEXT </label>
       <input
         name="input-text"
         id="input-text"
@@ -39,29 +49,38 @@
     </div>
 
     <div class="item">
-      RESULT TEXT:<br />
-      <div id="input-result-regex"></div>
+      <h3>RESULT TEXT:</h3>
+      <br />
+      <div class="text-value" id="input-result-regex"></div>
     </div>
 
     <div class="item">
-      STATUS:<br />
-      <div id="input-status"></div>
+      <h3>STATUS:</h3>
+      <br />
+      <div class="text-value" id="input-status"></div>
     </div>
 
     <div class="item">
-      CONFIG REPLACER:<br />
-      <pre id="input-config"></pre>
+      <h3>CONFIG REPLACER:</h3>
+
+      <br />
+      <pre class="text-value" id="input-config"></pre>
     </div>
 
     <hr />
 
     <h2>Past your config file</h2>
     <div class="item">
-      ERRORS:<br />
-      <div id="msg-errors"></div>
+      <h3>ERRORS:</h3>
+
+      <br />
+      <div class="text-value" id="msg-errors"></div>
     </div>
 
-    <textarea name="note" id="textarea" class="scrollbar"></textarea>
+    <div class="item">
+      <label for="textarea">Config</label>
+      <textarea name="note" id="textarea" class="scrollbar"></textarea>
+    </div>
 
     <script type="module" src="./popup.js"></script>
   </body>

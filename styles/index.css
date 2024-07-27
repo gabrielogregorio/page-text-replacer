@@ -3,7 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-weight: 400;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 :root {
@@ -31,14 +31,26 @@
 
 #app {
   background-color: var(--main-bg-color);
-  color: var(--main-text-color);
   width: 700px;
   padding: 2rem;
+}
+
+label,
+h3 {
+  color: var(--main-text-color);
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 hr {
   border-color: #588187;
 }
+
+.text-value {
+  border-left: 2px solid #23f9ff;
+  padding-left: 0.5rem;
+}
+
 h1 {
   color: #fff002;
   font-weight: 800;
@@ -52,6 +64,49 @@ h2 {
   padding: 16 0px;
   font-weight: 500;
   color: #fff5fd;
+}
+
+.config-line {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.config-line .btn-status {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.config-line .buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.config-line #btn-status-off {
+  color: #7a2139;
+  border: 2px solid #1c1119;
+  background: #140710;
+}
+
+.config-line #btn-status-off.selected {
+  color: #e56c7b;
+  border: 2px solid #88444f;
+  background: #81242e;
+}
+
+.config-line #btn-status-on {
+  color: #1b3031;
+  background: #0a1c1c;
+  border: 2px solid #172727;
+}
+
+.config-line #btn-status-on.selected {
+  color: #000c2e;
+  background: #77fef8;
+  border: 2px solid #5f9892;
 }
 
 #textarea {
@@ -89,7 +144,7 @@ h2 {
 }
 
 .scrollbar::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
   cursor: move;
 }
 

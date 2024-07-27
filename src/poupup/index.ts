@@ -6,12 +6,15 @@ import {
   htmlTextareaConfig,
   htmlDivResultText,
   htmlInputReplaceBy,
-  htmlDivAlerts
+  htmlDivAlerts,
+  htmlButtonOff,
+  htmlButtonOn
 } from './inputs';
 import { removeExtraneousCharacters } from '../shared/utils';
 import { z } from 'zod';
 import { ConfigRepository } from '../shared/ConfigRepository';
 import { LocalStorageService } from '../services/LocalStorageService';
+import { StatusRepository } from '../shared/StatusRepository';
 
 const processRegexUpdated = () => {
   const regex: string = htmlInputRegex.value || '';
@@ -28,7 +31,7 @@ const processRegexUpdated = () => {
     const inputReplaceByValue = htmlInputReplaceBy.value || '';
     const regexContent = new RegExp(regex, 'g');
     if (regexContent.test(inputTextValue)) {
-      htmlRegexMath.textContent = '✅ FOUND TEXT';
+      htmlRegexMath.textContent = '✅';
 
       try {
         htmlDivResultText.textContent = inputTextValue.replace(regexContent, inputReplaceByValue) || '🧹';
@@ -65,20 +68,22 @@ const processRegexUpdated = () => {
   htmlTextareaConfig.addEventListener('input', () => {
     ConfigRepository.save(htmlTextareaConfig.value)
       .then(() => {
+        htmlDivAlerts.textContent = '✅';
         processRegexUpdated();
-        htmlDivAlerts.textContent = '';
       })
       .catch((error) => {
         if (error instanceof z.ZodError) {
-          htmlDivAlerts.textContent = `SCHEMA IS INVALID, "${JSON.stringify(error.errors)}"`;
+          htmlDivAlerts.textContent = `❌ SCHEMA IS INVALID, "${JSON.stringify(error.errors)}"`;
           return;
         }
-        htmlDivAlerts.textContent = `ERROR ON SAVE SCHEMA, ${error}`;
+        htmlDivAlerts.textContent = `❌ ERROR ON SAVE SCHEMA, ${error}`;
       });
   });
 })();
 
 (async function getInitialStage() {
+  htmlDivAlerts.textContent = '✅';
+
   htmlInputRegex.value = LocalStorageService.get(htmlInputRegex.id) || '';
   htmlInputReplaceBy.value = LocalStorageService.get(htmlInputReplaceBy.id) || '';
   htmlInputText.value = LocalStorageService.get(htmlInputText.id) || '';
@@ -107,3 +112,28 @@ const processRegexUpdated = () => {
 
   processRegexUpdated();
 })();
+
+const markIsEnabled = (enabled: boolean) => {
+  if (enabled) {
+    htmlButtonOff.classList.remove('selected');
+    htmlButtonOn.classList.add('selected');
+    return;
+  }
+  
+  htmlButtonOff.classList.add('selected');
+  htmlButtonOn.classList.remove('selected');
+};
+
+htmlButtonOff.addEventListener('click', () => {
+  StatusRepository.save('disabled');
+  markIsEnabled(false);
+});
+
+htmlButtonOn.addEventListener('click', () => {
+  StatusRepository.save('enabled');
+  markIsEnabled(true);
+});
+
+StatusRepository.get().then((status) => {
+  markIsEnabled(status === 'enabled');
+});

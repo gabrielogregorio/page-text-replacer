@@ -5,6 +5,15 @@ export class SharedStorageService {
     chrome.storage.local.set({ [key]: data.trim() }, function () {});
   }
 
+  public static get = async (key: string): Promise<string | undefined> => {
+    const items = (await chrome.storage.local.get([key]))[key];
+    if (!items) {
+      return undefined;
+    }
+
+    return items;
+  };
+
   public static getAndParseJson = async <T>(key: string): Promise<T | undefined> => {
     const items = (await chrome.storage.local.get([key]))[key];
     if (!items) {
