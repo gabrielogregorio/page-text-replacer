@@ -1,23 +1,23 @@
 {
   "compilerOptions": {
-    "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
 
+    "allowJs": true,
+    "module": "ES6",
+    "target": "ES5",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "baseUrl": "./src",
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noErrorTruncation": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": false,
-    "baseUrl": ".",
     "noEmit": false,
     "jsx": "preserve",
     "incremental": true,
@@ -25,5 +25,5 @@
     "outDir": "./dist"
   },
   "include": ["./src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "./prepareBuild.js"]
 }
