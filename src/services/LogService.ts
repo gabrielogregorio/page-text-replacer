@@ -22,7 +22,7 @@ export class LogService {
       return;
     }
 
-    console.error('[page-text-replacer] ' + message, ...optionalParams);
+    console.warn('[page-text-replacer] ' + message, ...optionalParams);
   }
 }
 
