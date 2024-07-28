@@ -1,6 +1,6 @@
 {
   "name": "page-text-replacer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Very simple chrome extension to replace text in page",
   "main": "index.js",
   "repository": "https://github.com/gabrielogregorio/page-text-replacer.git",
