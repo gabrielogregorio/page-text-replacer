@@ -23,6 +23,17 @@
 
     <h2>Create a replacer config</h2>
 
+
+    <div class="item">
+      <label for="input-text"> TEXT </label>
+      <input
+        name="input-text"
+        id="input-text"
+        class="input"
+        placeholder="Type your target text, invalid characters will be removed"
+      />
+    </div>
+
     <div class="item">
       <label for="input-regex"> REGEX </label>
       <input name="input-regex" id="input-regex" class="input" placeholder="Type your regex" />
@@ -39,29 +50,21 @@
     </div>
 
     <div class="item">
-      <label for="input-text"> TEXT </label>
-      <input
-        name="input-text"
-        id="input-text"
-        class="input"
-        placeholder="Type your target text, invalid characters will be removed"
-      />
-    </div>
-
-    <div class="item">
-      <h3>RESULT TEXT:</h3>
-      <br />
-      <div class="text-value" id="input-result-regex"></div>
-    </div>
-
-    <div class="item">
       <h3>STATUS:</h3>
       <br />
       <div class="text-value" id="input-status"></div>
     </div>
 
     <div class="item">
-      <h3>CONFIG REPLACER:</h3>
+      <h3>RESULT TEXT</h3>
+      <br />
+      <div class="text-value" id="input-result-regex"></div>
+    </div>
+
+
+
+    <div class="item">
+      <h3>CONFIG REPLACER</h3>
 
       <br />
       <pre class="text-value" id="input-config"></pre>
