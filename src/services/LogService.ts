@@ -25,3 +25,4 @@ export class LogService {
     console.error('[page-text-replacer] ' + message, ...optionalParams);
   }
 }
+
