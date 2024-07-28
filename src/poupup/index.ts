@@ -51,17 +51,17 @@ const processRegexUpdated = () => {
 
 (function syncLocalStatesOnLocalStorageService() {
   htmlInputText.addEventListener('input', () => {
-    LocalStorageService.save('htmlInputText', removeExtraneousCharacters(htmlInputText.value) || '');
+    LocalStorageService.save(htmlInputText.id, removeExtraneousCharacters(htmlInputText.value) || '');
     processRegexUpdated();
   });
 
   htmlInputRegex.addEventListener('input', () => {
-    LocalStorageService.save('htmlInputRegex', htmlInputRegex.value || '');
+    LocalStorageService.save(htmlInputRegex.id, htmlInputRegex.value || '');
     processRegexUpdated();
   });
 
   htmlInputReplaceBy.addEventListener('input', () => {
-    LocalStorageService.save('htmlInputReplaceBy', htmlInputReplaceBy.value || '');
+    LocalStorageService.save(htmlInputReplaceBy.id, htmlInputReplaceBy.value || '');
     processRegexUpdated();
   });
 
