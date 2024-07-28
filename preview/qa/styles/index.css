@@ -1,0 +1,168 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --main-bg-color: #150913;
+  --main-text-color: #f35647;
+  --main-border-color: #23f9ff;
+}
+
+.item {
+  margin-top: 0.5rem;
+}
+
+#input-text,
+#input-status,
+#input-config,
+#msg-errors,
+#input-result-regex,
+#input-result-regex {
+  color: #23f9ff;
+}
+
+.input {
+  margin-top: 0.2rem;
+}
+
+#app {
+  background-color: var(--main-bg-color);
+  width: 700px;
+  padding: 2rem;
+}
+
+label,
+h3 {
+  color: var(--main-text-color);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+hr {
+  border-color: #588187;
+}
+
+.text-value {
+  border-left: 2px solid #23f9ff;
+  padding-left: 0.5rem;
+}
+
+h1 {
+  color: #fff002;
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  background: #0e0b16;
+  padding: 16 0px;
+  font-weight: 500;
+  color: #fff5fd;
+}
+
+.config-line {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.config-line .btn-status {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.config-line .buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.config-line #btn-status-off {
+  color: #7a2139;
+  border: 2px solid #1c1119;
+  background: #140710;
+}
+
+.config-line #btn-status-off.selected {
+  color: #e56c7b;
+  border: 2px solid #88444f;
+  background: #81242e;
+}
+
+.config-line #btn-status-on {
+  color: #1b3031;
+  background: #0a1c1c;
+  border: 2px solid #172727;
+}
+
+.config-line #btn-status-on.selected {
+  color: #000c2e;
+  background: #77fef8;
+  border: 2px solid #5f9892;
+}
+
+#textarea {
+  margin-top: 1rem;
+  border: 2px solid var(--main-border-color);
+  color: var(--main-text-color);
+  background-color: transparent;
+  font-weight: 400;
+  outline: none;
+  height: 400px;
+  width: 100%;
+  padding: 24px;
+  color: #23f9ff;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.item {
+  padding-top: 0.5rem;
+}
+
+.input {
+  border: 2px solid var(--main-border-color);
+  color: var(--main-text-color);
+  background-color: transparent;
+  outline: none;
+  width: 100%;
+  color: #23f9ff;
+  padding: 6px;
+  font-size: 1rem;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+  cursor: move;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  border: none;
+  background: #290e17;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  border: none;
+  background: #c74851;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  border: none;
+  background: #c74851;
+}
+
+hr {
+  margin-top: 0.5rem;
+}
