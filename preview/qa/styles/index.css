@@ -82,6 +82,7 @@ h2 {
 
 .config-line .buttons {
   display: flex;
+  justify-content: end;
   gap: 8px;
 }
 
