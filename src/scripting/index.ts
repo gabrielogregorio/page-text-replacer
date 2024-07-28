@@ -20,5 +20,9 @@ setInterval(async () => {
 
   LogService.log('is enabled');
 
-  runningScript();
+  try {
+    await runningScript();
+  } catch (error) {
+    LogService.error(error, 'error on running extension');
+  }
 }, ONE_SECOND_IN_MS * 2);
