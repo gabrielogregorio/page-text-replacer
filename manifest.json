@@ -3,7 +3,7 @@
   "name": "page-text-replacer",
   "short_name": "page-text-replacer",
   "description": "replaces texts on the page using regex and a json template",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "gabriel.gregorio.1@outlook.com",
   "content_security_policy": {
     "extension_pages": "default-src 'self'"

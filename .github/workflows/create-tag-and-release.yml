@@ -2,50 +2,52 @@ name: create tag and release on merge pr
 
 on:
   pull_request:
-    types:
-      - closed
+    types: [closed]
+    branches: [main]
 
 jobs:
   create-release:
-    if: github.event.pull_request.merged == true
+    if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: main
 
       - name: set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 20.x
 
-      - name: get current version
-        id: get-version
+      - name: set config tag and release
         run: |
-          VERSION=$(node -p "require('./package.json').version")
-          echo "Current version: $VERSION"
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
 
-      - name: update release with PR content and set tag version
-        id: update-pr-content
-        run: |
           PR_TITLE="${{ github.event.pull_request.title }}"
-          PR_CONTENT="${PR_TITLE}: ${{ github.event.pull_request.body }}"
-          TAG_VERSION="${PR_TITLE}-v${{ env.VERSION }}"
-          echo "PR_CONTENT<<EOF" >> $GITHUB_ENV
-          echo "$PR_CONTENT" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-          echo "TAG_VERSION=$TAG_VERSION" >> $GITHUB_ENV
+          PR_BODY="${{ github.event.pull_request.body }}"
+          BODY_RELEASE="${PR_TITLE} ${PR_BODY}"
 
-      - name: create release and tag
-        uses: actions/create-release@v1
+          echo "BODY_RELEASE<<EOF" >> $GITHUB_ENV
+          echo "$BODY_RELEASE" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+          TAG_NAME="v${PACKAGE_VERSION}"
+          echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+
+          RELEASE_NAME="Release v${PACKAGE_VERSION}"
+          echo "RELEASE_NAME=$RELEASE_NAME" >> $GITHUB_ENV
+
+      - name: create tag and release
+        uses: gabrielogregorio/create-tag-and-release@v2.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.TAG_VERSION }}
-          release_name: Release ${{ env.TAG_VERSION }}
+          tag_name: ${{ env.TAG_NAME }}
+          release_name: ${{ env.RELEASE_NAME }}
           body: |
-            ${{ env.PR_CONTENT }}
+            ${{ env.BODY_RELEASE }}
+          make_latest: true
+          generate_release_notes: true
           draft: false
           prerelease: false
