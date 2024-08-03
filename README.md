@@ -6,7 +6,12 @@ Rules are applied every 2 seconds
 
 ![Running extension](./docs/running.gif)
 
-## How to install?
+## How to install for use?
+
+1. Open the [extension website](https://chromewebstore.google.com/detail/page-text-replacer/kjmpnhjiegmgajhgfhkgmppcoaofidcn?authuser=0&hl=pt-BR), install and pin it
+
+
+## How to install for devs?
 
 1. Extract the release you want to install
 
@@ -43,9 +48,9 @@ The rules are defined through a list, which follows the following format:
 ```ts
 [
   {
-    // for organization
-    name: '',
-    url: '',
+    
+    name: '', // for organization
+    url: '',  // for organization
 
     // regex that defines which sites the extension will be active on,
     // in this case, this rule will be active on the url that contains this pattern
@@ -53,6 +58,17 @@ The rules are defined through a list, which follows the following format:
 
     // this is the query selector all that the extension should search for, this
     // is `document.querySelectorAll('query here')`, where the query here is the content below
+    // 🚨🚨🚨 VERY IMPORTANT  🚨🚨🚨, if you have a nested html, example
+    // <BaseTag>
+    //   <LogTag class="text-black">
+    //     yourLog
+    //   </LogTag>
+    // </BaseTag>
+    // If you capture the BaseTag tag, the LogTag will be REMOVED in the process
+    // of executing the regex, that is, the "text-black" class and the LogTag will be
+    // REMOVED, this can BREAK the STYLING of the page. Analyze the
+    // HTML and get the 'LogTag[class="text-black"]'
+    // Suggestion for GCP logs in 2 ago 2024: logs-highlightable-text[class=\"logs-highlightable-text summary-text\"]
     querySelectorAllTextContent: '[itemprop="name codeRepository"]',
 
     // replacers are the replacement rules that the extension will use, we will see more in the topic below
